@@ -5,9 +5,7 @@ class Api::V1::TasksController < Api::V1::BaseController
 
   def create
     @task = Task.new(task_params)
-    if @task.save
-      :index
-    else
+    unless @task.save
       render_error
     end
   end
